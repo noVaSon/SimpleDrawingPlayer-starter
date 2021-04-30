@@ -3,6 +3,7 @@ package ui.tools;
 
 import model.Shape;
 import ui.DrawingEditor;
+import model.shapes.Rectangle;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -66,7 +67,8 @@ public class ShapeTool extends Tool {
 
 	//EFFECTS: Constructs and returns the new shape
 	private void makeShape(MouseEvent e) {
-		shape = new Shape(e.getPoint(), editor.getMidiSynth());
+
+		shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
 	}
 
 	private class ShapeToolClickHandler implements ActionListener {
