@@ -11,7 +11,8 @@ public class Oval extends Shape {
 
     public Oval(Point point, MidiSynth midiSynth){
         super(point, midiSynth);
-        setInstrument(36);
+        setInstrument(30);
+        setPlayingColor(Color.blue);
     }
 
     //EFFECTS: draws the shape

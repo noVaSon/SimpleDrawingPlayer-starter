@@ -16,6 +16,7 @@ public abstract class Shape {
 
     private boolean selected;
 
+    private Color defaultColor = Color.white;
     private MidiSynth midiSynth;
     private int instrument;
     private int playLineCoord;
@@ -49,6 +50,11 @@ public abstract class Shape {
         this.instrument = midiInstrNo;
     }
 
+    public void setPlayingColor(Color c){
+        this.defaultColor = c;
+    }
+
+
     // EFFECTS: return true iff the given x value is within the bounds of the Shape
     public boolean containsX(int x){
         return (this.x <= x) && (x <= this.x + width);
@@ -77,7 +83,7 @@ public abstract class Shape {
         if (selected) {
             g.setColor(PLAYING_COLOR);
         } else {
-            g.setColor(Color.white);
+            g.setColor(defaultColor);
         }
         fillGraphics(g);
         g.setColor(save);
