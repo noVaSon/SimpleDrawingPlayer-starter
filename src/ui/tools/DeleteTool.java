@@ -16,26 +16,7 @@ public class DeleteTool extends Tool {
 		super(editor, parent);
 		shapeToDelete = null;
 	}
-
-    // MODIFIES: this
-    // EFFECTS:  constructs a delete button which is then added to the JComponent (parent)
-    //           which is passed in as a parameter
-	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Delete");
-		addToParent(parent);
-	}
-
-    // MODIFIES: this
-    // EFFECTS:  constructs a new listener object which is added to the JButton
-	@Override
-	protected void addListener() {
-		button.addActionListener(new DeleteToolClickHandler());
-	}
-
-    // MODIFIES: this
-    // EFFECTS:  Sets the shape at the current mouse position as the shape to delete,
-	//           selects the shape and plays it
+	
 	@Override
 	public void mousePressedInDrawingArea(MouseEvent e) {
 		shapeToDelete = editor.getShapeInDrawing(e.getPoint());
@@ -65,6 +46,26 @@ public class DeleteTool extends Tool {
             shapeToDelete.selectAndPlay();
         }
 	}
+
+	// MODIFIES: this
+    // EFFECTS:  constructs a delete button which is then added to the JComponent (parent)
+    //           which is passed in as a parameter
+    @Override
+    protected void createButton(JComponent parent) {
+        button = new JButton("Delete");
+        addToParent(parent);
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  constructs a new listener object which is added to the JButton
+    @Override
+    protected void addListener() {
+        button.addActionListener(new DeleteToolClickHandler());
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  Sets the shape at the current mouse position as the shape to delete,
+    //           selects the shape and plays it
 
 	private class DeleteToolClickHandler implements ActionListener {
 

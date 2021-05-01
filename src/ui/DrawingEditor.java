@@ -35,7 +35,7 @@ public class DrawingEditor extends JFrame {
 	}
 
 	// getters
-	public Drawing getCurrentDrawing(){ return currentDrawing; }
+	public Drawing getCurrentDrawing() { return currentDrawing; }
 	public MidiSynth getMidiSynth() { return midiSynth; }
 
 

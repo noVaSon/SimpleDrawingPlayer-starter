@@ -21,22 +21,6 @@ public class MoveTool extends Tool {
 	}
 
     // MODIFIES: this
-    // EFFECTS:  constructs a move button which is then added to the JComponent (parent)
-    //           which is passed in as a parameter
-	@Override
-	protected void createButton(JComponent parent) {
-		button = new JButton("Move");
-		addToParent(parent);
-	}
-
-    // MODIFIES: this
-    // EFFECTS:  constructs a new listener object which is added to the JButton
-	@Override
-	protected void addListener() {
-		button.addActionListener(new MoveToolClickHandler());
-	}
-
-    // MODIFIES: this
     // EFFECTS:  Sets the shape at the current mouse position as the shape to move,
 	//           selects and plays the shape, and initialize the starting point of
 	//           the move with the current location of the MouseEvent
@@ -71,7 +55,23 @@ public class MoveTool extends Tool {
 		}
 	}
 
-	private class MoveToolClickHandler implements ActionListener {
+    // MODIFIES: this
+    // EFFECTS:  constructs a move button which is then added to the JComponent (parent)
+    //           which is passed in as a parameter
+    @Override
+    protected void createButton(JComponent parent) {
+        button = new JButton("Move");
+        addToParent(parent);
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  constructs a new listener object which is added to the JButton
+    @Override
+    protected void addListener() {
+        button.addActionListener(new MoveToolClickHandler());
+    }
+
+    private class MoveToolClickHandler implements ActionListener {
 
 		// EFFECTS: sets active tool to the move tool
 		//          called by the framework when the tool is clicked

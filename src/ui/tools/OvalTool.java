@@ -14,7 +14,7 @@ public class OvalTool extends ShapeTool {
     }
 
     @Override
-    public String getLabel(){
+    public String getLabel() {
         return "Oval";
     }
 

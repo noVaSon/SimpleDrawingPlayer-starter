@@ -27,13 +27,6 @@ public class ResizeTool extends Tool {
 	}
 
     // MODIFIES: this
-    // EFFECTS: associate button with new ClickHandler
-	@Override
-	protected void addListener() {
-		button.addActionListener(new ResizeToolClickHandler());
-	}
-
-    // MODIFIES: this
 	// EFFECTS:  Sets the shape at the current mouse position as the shape to resize,
 	//           selects the shape and plays it
 	@Override
@@ -62,6 +55,13 @@ public class ResizeTool extends Tool {
 			shapeToResize.setBounds(e.getPoint());
 		}
 	}
+
+    // MODIFIES: this
+    // EFFECTS: associate button with new ClickHandler
+    @Override
+    protected void addListener() {
+        button.addActionListener(new ResizeToolClickHandler());
+    }
 
 	private class ResizeToolClickHandler implements ActionListener {
 

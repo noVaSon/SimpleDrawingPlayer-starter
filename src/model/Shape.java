@@ -31,7 +31,6 @@ public abstract class Shape {
         PLAYING_COLOR = new Color(230, 158, 60);
     }
 
-
     public Shape(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
@@ -43,16 +42,9 @@ public abstract class Shape {
     public int getWidth() { return width; }
 
     // setters
-    public void setPlayLineCoord(int playLineCoord) {
-        this.playLineCoord = playLineCoord;
-    }
-    public void setInstrument(int midiInstrNo){
-        this.instrument = midiInstrNo;
-    }
-
-    public void setPlayingColor(Color c){
-        this.defaultColor = c;
-    }
+    public void setPlayLineCoord(int playLineCoord) { this.playLineCoord = playLineCoord; }
+    public void setInstrument(int midiInstrNo) { this.instrument = midiInstrNo; }
+    public void setPlayingColor(Color c) { this.defaultColor = c; }
 
 
     // EFFECTS: return true iff the given x value is within the bounds of the Shape

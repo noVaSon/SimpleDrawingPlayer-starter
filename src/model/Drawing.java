@@ -6,7 +6,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("serial")
 public class Drawing extends JPanel {
 
     private static final int MUSIC_LINES_SPACE = 30;
@@ -44,19 +43,6 @@ public class Drawing extends JPanel {
         }
 	}
 
-	// EFFECTS: draws grid with lines GRIDSPACE apart, and draws red line at its current position
-    private void drawHorizontalNotesLines(Graphics g) {
-        Color save = g.getColor();
-        g.setColor(new Color(227,227,227));
-        for (int y = MUSIC_LINES_SPACE; y < getHeight(); y += MUSIC_LINES_SPACE) {
-            g.drawLine(0, y, getWidth(), y);
-        }
-        if (playLineColumn > 0 && playLineColumn < getWidth()) {
-            g.setColor(Color.RED);
-            g.drawLine(playLineColumn, 0, playLineColumn, getHeight());
-        }
-        g.setColor(save);
-    }
 
     // MODIFIES: this
     // EFFECTS:  adds the given shape to the drawing
@@ -90,4 +76,18 @@ public class Drawing extends JPanel {
 		}
 		return shapesAtColumn;
 	}
+
+	// EFFECTS: draws grid with lines GRIDSPACE apart, and draws red line at its current position
+    private void drawHorizontalNotesLines(Graphics g) {
+        Color save = g.getColor();
+        g.setColor(new Color(227,227,227));
+        for (int y = MUSIC_LINES_SPACE; y < getHeight(); y += MUSIC_LINES_SPACE) {
+            g.drawLine(0, y, getWidth(), y);
+        }
+        if (playLineColumn > 0 && playLineColumn < getWidth()) {
+            g.setColor(Color.RED);
+            g.drawLine(playLineColumn, 0, playLineColumn, getHeight());
+        }
+        g.setColor(save);
+    }
 }
